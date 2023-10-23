@@ -1,0 +1,19 @@
+{
+    "name": "stepankarlovec/tipsport",
+    "description": "php class for communicating with tipsport",
+    "require": {
+        "php": "8"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Stepankarlovec\\Tipsport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "stepankarlovec"
+        }
+    ],
+    "minimum-stability": "dev"
+}

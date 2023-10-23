@@ -1,5 +1,7 @@
 <?php
+namespace Stepankarlovec\Tipsport;
 
+use CurlHandle;
 
 class Request
 {
@@ -13,10 +15,12 @@ class Request
 
     /**
      * Constructor for the requests, it automaticly initiates the request, but doesn't execute. For execution call $request->execute();
-     * @param $url String URL
-     * @param $type String Type (POST, GET)
-     * @param $fields Array Request fields
-     * @param $headers Array Request headers
+     *
+     * @param              $url     String URL
+     * @param              $type    String Type (POST, GET)
+     * @param string|array $fields  array Request fields
+     * @param              $headers array Request headers
+     * @param bool         $returnHeader
      */
     public function __construct(string $url, string $type = "GET", string|array $fields = [], array $headers = [], bool $returnHeader = false)
     {

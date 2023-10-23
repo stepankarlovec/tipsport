@@ -1,4 +1,7 @@
 <?php
+namespace Stepankarlovec\Tipsport;
+
+use Exception;
 
 class Tipsport
 {
