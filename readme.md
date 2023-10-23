@@ -14,7 +14,7 @@ Disclaimer: These are not official files from Tipsport, this piece of software u
 
 ## Installation
 ``` 
-just yoink the Class folder. packagist coming soon.
+composer require stepankarlovec/tipsport
 ```
 ## Usage
 
