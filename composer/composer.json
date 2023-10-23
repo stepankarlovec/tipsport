@@ -1,0 +1,17 @@
+{
+    "name": "stepankarlovec/tipsport",
+    "autoload": {
+        "psr-4": {
+            "StepanKarlovec\\Tipsport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stepan Karlovec",
+            "email": "karlovecstepan@gmail.com"
+        }
+    ],
+    "require": {
+      "ext-curl": "*"
+    }
+}
