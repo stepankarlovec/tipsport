@@ -132,7 +132,6 @@ class Tipsport
         return $r->executeAndParse();
     }
 
-    // https://www.tipsport.cz/rest/offer/v1/competitions/top top competitions
     public function getOfferData(int $competitionId, int $limit=75): mixed
     {
         $r = new Request("https://www.tipsport.cz/rest/offer/v2/offer", "POST", json_encode([
@@ -174,7 +173,8 @@ class Tipsport
     }
 
     // recursively return all the field which have type=="competition"
-    private function findCompetitions($data){
+    private function findCompetitions($data): array
+    {
         $result = [];
 
         foreach ($data as $item) {

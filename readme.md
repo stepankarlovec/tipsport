@@ -12,9 +12,11 @@ Disclaimer: These are not official files from Tipsport, this piece of software u
   - Login ❌ (soon)
   - Place bet ❌
 
+#### Share, use, contribute, enjoy!
+
 ## Installation
 ``` 
-just yoink the Class folder. packagist coming soon.
+composer require stepankarlovec/tipsport
 ```
 ## Usage
 
@@ -32,8 +34,11 @@ $search = $TS->search("Sparta");
 // Get match details about the first one
 $result = $TS->getMatchDetails($search[0]["matchId"]);
 
-// dump the results
-var_dump($result);
+// Finds all opportunities which include opportunityName "Remíza"
+$draw = $TS->opportunityFilter($detail, 'opportunityName', 'Remíza');
+
+echo $draw[0]["opportunityName"] . ": " . $draw[0]["currentOdd"];
+// Remíza: 3.75
 ```
 
 ## Documentation
