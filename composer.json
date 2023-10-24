@@ -2,7 +2,8 @@
     "name": "stepankarlovec/tipsport",
     "description": "php class for communicating with tipsport",
     "require": {
-        "php": "8"
+        "php": "8",
+        "ext-curl": "*"
     },
     "license": "MIT",
     "autoload": {

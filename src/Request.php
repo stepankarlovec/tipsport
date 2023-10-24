@@ -1,7 +1,10 @@
 <?php
-namespace Stepankarlovec\Tipsport;
-
-use CurlHandle;
+/**
+ * Request Class for Tipsport API communication
+ * https://github.com/stepankarlovec/tipsport
+ *
+ * feel free to contribute <3
+ */
 
 class Request
 {
@@ -18,8 +21,8 @@ class Request
      *
      * @param              $url     String URL
      * @param              $type    String Type (POST, GET)
-     * @param string|array $fields  array Request fields
-     * @param              $headers array Request headers
+     * @param string|array $fields  Array Request fields
+     * @param              $headers Array Request headers
      * @param bool         $returnHeader
      */
     public function __construct(string $url, string $type = "GET", string|array $fields = [], array $headers = [], bool $returnHeader = false)
@@ -36,11 +39,19 @@ class Request
     }
 
 
+    /**
+     * Initializes the cURL
+     * @return void
+     */
     private function startRequest(): void
     {
         $this->curl = curl_init($this->url);
     }
 
+    /**
+     * Sets cURL options based on the HTTP request type
+     * @return void
+     */
     private function initType(): void
     {
         if ($this->type == "POST" || $this->type == "post" || $this->type == "p") {
@@ -54,12 +65,21 @@ class Request
             curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
         }
     }
+
+    /**
+     * Initializes HTTP headers
+     * @return void
+     */
     private function initHeaders(): void
     {
         curl_setopt($this->curl, CURLOPT_HTTPHEADER, $this->headers);
 
     }
 
+    /**
+     * Executes the cURL
+     * @return String
+     */
     public function execute(): String
     {
         $res = curl_exec($this->curl);
@@ -67,6 +87,10 @@ class Request
         return $res;
     }
 
+    /**
+     * Executes and parses the JSON result
+     * @return mixed
+     */
     public function executeAndParse(): mixed
     {
         $res = json_decode(curl_exec($this->curl),true);

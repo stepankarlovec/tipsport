@@ -12,6 +12,8 @@ Disclaimer: These are not official files from Tipsport, this piece of software u
   - Login ❌ (soon)
   - Place bet ❌
 
+#### Share, use, contribute, enjoy!
+
 ## Installation
 ``` 
 composer require stepankarlovec/tipsport
@@ -32,16 +34,24 @@ $search = $TS->search("Sparta");
 // Get match details about the first one
 $result = $TS->getMatchDetails($search[0]["matchId"]);
 
-// dump the results
-var_dump($result);
+// Finds all opportunities which include opportunityName "Remíza"
+$draw = $TS->opportunityFilter($detail, 'opportunityName', 'Remíza');
+
+echo $draw[0]["opportunityName"] . ": " . $draw[0]["currentOdd"];
+// Remíza: 3.75
 ```
 
 ## Documentation
-| Function name        | Description                         | Parameters                        |
-|----------------------|-------------------------------------|-----------------------------------|
-| getCompetitionData() | competition data                    | -                                 |
-| getOfferData()       | offer data                          | int $competitionId, int $limit=75 |
-| topCompetitions()    | top competitions                    | -                                 | 
-| search()             | searches for a match                | String $searchText                |
-| getMatchDetails()    | get match details                   | int $matchId                      |
-| getCategories()      | get different categories/competions |                                   |
+#### Public methods
+| Function name        | Description                         | Parameters                              |
+|----------------------|-------------------------------------|-----------------------------------------|
+| getCompetitions() | competitions                        | -                                       |
+| getCompetitionsByName()| competitions by name                | string $searchValue                     |
+| getSports()    | sports                              | -                                       | 
+| getSportByName()             | sports by name                      | String $searchValue                     |
+| topCompetitions()            | top competitions                    | -                                       |
+| getOfferData()               | get offer data                      | -                                       |
+| getCompetitionMatches()      | get competition matches             | int $competitionId                      |
+| search()                     | search                              | String $searchValue                     |
+| getMatchDetails()            | get match details                   | int $matchId                            |
+| opportunityFilter()          | filter opportunities                | array $data, String $key, String $value |
